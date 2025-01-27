@@ -1,8 +1,9 @@
+import 'dotenv/config'
 import express from 'express'
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT ||4000
 
 // app.get("/", (req, res) =>{
 //     res.send("Hello Bikers!")
@@ -67,6 +68,7 @@ app.delete('/bikes/:id', (req, res) => {
     bikeData.splice(index, 1)
     res.status(204).send('deleted!')
 })
+
 
 app.listen(port, () => {
 console.log(`Server is Running at ${port}`)
